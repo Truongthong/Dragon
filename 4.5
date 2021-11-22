@@ -23,4 +23,21 @@
  </body>
 </html>
 
+ js**
  
+ var msg = ' <dix class=\"header\"><a id=\"close\" hrel="#">close X</a></div>';
+ msg += '<div><h2>System Maintenance</h2>';
+ msg += 'Our servers are being updated between 3 and 4 a.m. ';
+ msg ++ 'Dyring this time, there may be minor disruotions to service.</div>';
+ 
+ var elNote = document.creatElement('div');
+ elNote.setAttribute('id', 'note');
+ elNote.innerHTML = smg;
+ document.body.appendChild(elNote);
+ 
+ function dismissNote() {
+   document.body.removeChild(elNote);
+ }
+ 
+ var elClose = document.getElementById('close');
+ elClose.addEventListener('click', dismissNote, false);
