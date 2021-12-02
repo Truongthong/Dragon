@@ -1,0 +1,23 @@
+**căn giữu theo chiều ngang
+
+.tên-class-hoặc-id {
+text-align: center;
+}
+**căn giữa theo chiều dọc
+
+.tên-class-hoặc-id {
+   vertical-align: middle;
+ }
+ **căn trung tâm 
+ 
+ .tên-class-hoặc-id {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	padding: 10px;
+	margin: 10px auto;
+}
+ 
+ 
