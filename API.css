@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Tahoma";
+    box-sizing: border-box;
+}
+
+footer {
+    height: 50px;
+    text-align: center;
+}
+body{
+    width: 100%;
+    height: 1080px;
+    background-image: url("https://scr.vn/wp-content/uploads/2020/07/%E1%BA%A2nh-n%E1%BB%81n-m%C3%A1y-t%C3%ADnh-c%E1%BB%B1c-%C4%91%E1%BA%B9p-Gearvn.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    padding: 15px;
+}
+.model-content{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+header .logo img{
+    float: left;
+    width: 50%;
+    width: 100px;
+}
+
+header .search-box {
+    padding: 0px 0px;
+    float: left;
+    width: 90%;
+}
+
+header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form-group {
+    margin: 10px 5px;
+}
+
+.form-group label:first-child {
+    width: 15%;
+    float: left;
+}
+
+.form-group label {
+    float: left;
+}
+
+.form-group .form-control {
+    float: left;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.form-group::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.long-input {
+    width: 40%;
+}
+
+.normal-input {
+    width: 30%;
+}
+
+.short-input {
+    width: 20%;
+}
+
+.error-msg {
+    color: red;
+}
+
+.success-msg {
+    color: green;
+}
+
+#list-video {
+    padding: 10px;
+}
+
+#list-video::after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+.video {
+    width: 30%;
+    float: left;
+    margin: 0 15px;
+    text-align: center;
+}
+
+.video img {
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #0c0b0b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.video img:hover {
+    opacity: 0.7;
+}
+
+.video .title {
+    font-weight: bold;
+    margin-top: 10px;
+    height: 47px;
+    overflow: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-box {
+    margin: auto;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
+    background-image: url("https://scr.vn/wp-content/uploads/2020/07/n%E1%BB%81n-tr%E1%BA%AFng-l%E1%BA%A5p-l%C3%A1nh.jpg");
+}
+
+
+/* The Modal ( background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(17, 17, 17);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to{-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screeens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
