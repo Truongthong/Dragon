@@ -1,0 +1,209 @@
+package session7;
+
+import java.security.PrivateKey;
+
+public class Account2 {
+    private  String accountNumber;
+    private  String accountHolderName;
+    private String accountType;
+    private  double balance;
+
+    public Account2(){
+        System.out.println("Default Consttructor Invoked..");
+        accountNumber = "Not Specified";
+        accountHolderName = "Not Specified";
+        accountType = "Not Specified";
+        balance = 0.0;
+
+    }
+
+    public Account2(String accountNumber, String accountHolderName,String accountType, double balace){
+        System.out.println("Parameterized Construtor Invoked");
+
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.accountType = accountType;
+        this.balance = balance;
+    }
+
+    public String getAccountNumber(){
+        return  accountNumber;
+
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public void setAccountHolderName(String accountHolderName) {
+        this.accountHolderName = accountHolderName;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public double getBalace() {
+        return balance;
+    }
+
+    public void setBalace(double balace) {
+        this.balance = balace;
+    }
+
+    public  void displayDetails(){
+        System.out.println("All Account Details of Customer");
+        System.out.println("-------------------------");
+        System.out.println("Account Number:" +accountNumber);
+        System.out.println("Account Type:" + accountType);
+        System.out.println("Balane:" + balance);
+    }
+}
+
+package session9;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Bank {
+    String bankID;
+    String bankName;
+    String branch;
+
+    private  ArrayList bankDetails = new ArrayList();
+
+    public  static final float interesRate = 3.5F;
+
+    public Bank() {
+
+        bankID = "Not Specified";
+        bankName = "Not Specified";
+        branch = " Not Specified";
+
+    }
+
+
+    public Bank(String bankID, String bankName, String branch) {
+
+        this.bankID = bankID;
+        this.bankName = bankName;
+        this.branch = branch;
+    }
+
+    public void addBankDetails(String[] details) {
+        System.out.println("Adding Bank Details. Please wait...");
+
+        for ( int i = 0; i < details.length; i++){
+            bankDetails.add(details[i]);
+        }
+    }
+
+     public void  displayBankDetails(){
+        System.out.println("Bank Details of Customer");
+        System.out.println("Bank Id. Bank Name \t Branch Interest");
+        System.out.println("--------------");
+
+         Iterator iBank = bankDetails.iterator();
+         while (iBank.hasNext()) {
+             System.out.print(iBank.next() + "  ");
+         }
+         System.out.print(interesRate);
+         System.out.println("");
+     }
+
+
+
+}
+
+package session7;
+
+
+import java.text.DecimalFormat;
+import session9.Bank;
+
+public class SavingAccount  extends Account2 {
+    private double dailyInterest;
+    private int daysOfYear;
+
+    public SavingAccount(String accountNumber, String accountHolderName, String accountType, double balance, int daysOfYear){
+           super(accountNumber, accountHolderName, accountType, balance);
+           this.daysOfYear = daysOfYear;
+    }
+
+    public  double calculateInterest(){
+        dailyInterest = (super.getBalace() * Bank.interesRate / 100) / daysOfYear;
+
+
+        DecimalFormat twoDForm = new DecimalFormat("#.00");
+
+        return Double.valueOf(twoDForm.format(dailyInterest));
+
+
+    }
+}
+
+package session7;
+
+import session9.Bank;
+
+import java.util.Scanner;
+
+public class TestAccount2 {
+    public static void main(String[] args) {
+
+        String[] accountDetails = new String[5];
+
+        String[] bankDetails = new String[3];
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter  Account Number:");
+        accountDetails[0] = input.nextLine();
+        System.out.print("Enter Name:");
+        accountDetails[1] = input.nextLine();
+        System.out.print("Enter Account Type:");
+        accountDetails[1] = input.nextLine();
+        System.out.print("Enter Balance:");
+        accountDetails[1] = input.nextLine();
+        System.out.print("Enter Number of Days:");
+        accountDetails[1] = input.nextLine();
+
+        System.out.print("Enter Bank ID:");
+        bankDetails[0] = input.nextLine();
+        System.out.print("Enter Bank Name:");
+        bankDetails[1] = input.nextLine();
+        System.out.print("Enter Branch:");
+        bankDetails[2] = input.nextLine();
+
+        System.out.print("-----------------");
+
+        SavingAccount objAccount2 = new SavingAccount(accountDetails[0], accountDetails[1],accountDetails[2],Double.parseDouble(accountDetails[3]),Integer.parseInt(accountDetails[4]));
+
+
+        objAccount2.displayDetails();
+        System.out.println("-----------------------------------");
+
+        Bank objBank1 = new Bank();
+
+        objBank1.addBankDetails(bankDetails);
+
+        objBank1.displayBankDetails();
+
+        objBank1.displayBankDetails();
+
+        System.out.println("Daily Interest is: $" +
+                objAccount2.calculateInterest());
+
+
+
+
+    }
+}
